@@ -1,17 +1,51 @@
-## Running React on Replit
+# Mini Reconciliation Tool
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+A React app to compare transaction data from your internal system and payment provider CSV exports — highlighting matches, mismatches, and missing transactions.
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
+## 🔍 Features Included
 
-Using the two in conjunction is one of the fastest ways to build a web app.
+- Upload two CSV files: **Internal System Export** & **Provider Statement**
+- Match transactions using `transaction_reference`
+- Categorize results into:
+  - Matched Transactions
+  - Present only in Internal file
+  - Present only in Provider file
+- Highlight mismatches in `amount` or `status`
+- Export each category as a separate CSV file
+- Visual indicators for success, warnings, and errors
+- Basic UI with feedback messages and loading states
 
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
+## 📂 How to Use
 
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
+1. Upload the **Internal System Export** CSV file  
+2. Upload the **Provider Statement** CSV file  
+3. Click **Compare Transactions**  
+4. View the categorized results with mismatches highlighted  
+5. Optionally export each result group as a CSV
 
-### Typescript
+## 🧠 Assumptions Made
 
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)
+- Input CSV files must have headers: `transaction_reference`, `amount`, and `status`
+- Files are small and manageable in the browser (client-side only)
+- Users access the tool via modern desktop browsers (e.g., Chrome, Edge, Firefox)
+- No user authentication is required
+
+## ⚙️ Tech Stack
+
+- **React** (Functional components + Hooks)
+- **PapaParse** for CSV parsing
+- **react-csv** for export functionality
+- **Vite** for development and build tooling
+
+## 🚀 Improvements I'd Make with More Time
+
+- Enhance mobile responsiveness for smaller screens
+- Support varied column naming and field validation
+- Build a backend to:
+  - Handle larger files
+  - Log audits
+  - Enable secure file storage
+- Add CSV preview/edit capability before comparing
+- Add transaction count summaries and filtering options (e.g., show only mismatches)
+- Implement dark mode or customizable UI themes
+
